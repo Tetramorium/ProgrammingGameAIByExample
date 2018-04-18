@@ -5,16 +5,30 @@ VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateDrivenAgentDesign", "StateDrivenAgentDesign\StateDrivenAgentDesign.csproj", "{0634A404-C36A-42A7-80EC-B0D2696554ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateDrivenUIDesign", "StateDrivenUIDesign\StateDrivenUIDesign.csproj", "{B64377FC-E223-4C51-84C5-5A21FE836461}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0634A404-C36A-42A7-80EC-B0D2696554ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0634A404-C36A-42A7-80EC-B0D2696554ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0634A404-C36A-42A7-80EC-B0D2696554ED}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0634A404-C36A-42A7-80EC-B0D2696554ED}.Debug|x86.Build.0 = Debug|Any CPU
 		{0634A404-C36A-42A7-80EC-B0D2696554ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0634A404-C36A-42A7-80EC-B0D2696554ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0634A404-C36A-42A7-80EC-B0D2696554ED}.Release|x86.ActiveCfg = Release|Any CPU
+		{0634A404-C36A-42A7-80EC-B0D2696554ED}.Release|x86.Build.0 = Release|Any CPU
+		{B64377FC-E223-4C51-84C5-5A21FE836461}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B64377FC-E223-4C51-84C5-5A21FE836461}.Debug|x86.ActiveCfg = Debug|x86
+		{B64377FC-E223-4C51-84C5-5A21FE836461}.Debug|x86.Build.0 = Debug|x86
+		{B64377FC-E223-4C51-84C5-5A21FE836461}.Release|Any CPU.ActiveCfg = Release|x86
+		{B64377FC-E223-4C51-84C5-5A21FE836461}.Release|x86.ActiveCfg = Release|x86
+		{B64377FC-E223-4C51-84C5-5A21FE836461}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
