@@ -46,6 +46,7 @@
     <Compile Include="Controller\MessageDispatcher.cs" />
     <Compile Include="Model\BaseGameEntity.cs" />
     <Compile Include="Model\MinerEntity\Miner.cs" />
+    <Compile Include="Model\MinerEntity\States\EatStew.cs" />
     <Compile Include="Model\MinerEntity\States\EnterMineAndDigForNugget.cs" />
     <Compile Include="Model\MinerEntity\States\GoHomeAndSleepTillRested.cs" />
     <Compile Include="Model\MinerEntity\States\QuenchThirst.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Model\IState.cs" />
     <Compile Include="Controller\StateMachine.cs" />
     <Compile Include="Model\Telegram.cs" />
+    <Compile Include="Model\WifeEntity\States\CookStew.cs" />
     <Compile Include="Model\WifeEntity\States\DoHouseWork.cs" />
     <Compile Include="Model\WifeEntity\States\VisitBathroom.cs" />
     <Compile Include="Model\WifeEntity\States\WifeGlobalState.cs" />

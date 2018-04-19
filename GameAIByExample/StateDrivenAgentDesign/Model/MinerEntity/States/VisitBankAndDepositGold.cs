@@ -57,5 +57,10 @@ namespace StateDrivenAgentDesign.Model.MinerEntity.States
         {
             _Miner.AnnounceTask("Leavin' the bank.");
         }
+
+        public bool OnMessage(Miner _Entity, Telegram _Telegram)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

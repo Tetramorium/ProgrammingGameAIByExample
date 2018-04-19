@@ -96,7 +96,7 @@ namespace StateDrivenUIDesign.View
             {
                 if (!(this.StateMachine.CurrentState is MainMenuState))
                 {
-                    this.StateMachine.ChangeState(MainMenuState.Instance);
+                    this.StateMachine.RevertToPreviousState();
                 }
             }
                 

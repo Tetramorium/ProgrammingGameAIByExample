@@ -41,5 +41,20 @@ namespace StateDrivenAgentDesign.Controller
         {
             ChangeState(this.PreviousState);
         }
+
+        public bool HandleMessage(Telegram _Telegram)
+        {
+            if (CurrentState.OnMessage(this.Owner, _Telegram))
+            {
+                return true;
+            }
+
+            if (GlobalState.OnMessage(this.Owner, _Telegram))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

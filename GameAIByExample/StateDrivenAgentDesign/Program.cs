@@ -1,4 +1,5 @@
-﻿using StateDrivenAgentDesign.Model.MinerEntity;
+﻿using StateDrivenAgentDesign.Controller;
+using StateDrivenAgentDesign.Model.MinerEntity;
 using StateDrivenAgentDesign.Model.WifeEntity;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace StateDrivenAgentDesign
         {
             Miner m = new Miner(1, "Miner Bob");
             Wife w = new Wife(2, "Lady Leia");
+
+            EntityManager.Instance.RegisterEntity(m);
+            EntityManager.Instance.RegisterEntity(w);
 
             for (int i = 0; i < 10000; i++)
             {

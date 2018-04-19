@@ -40,7 +40,7 @@ namespace StateDrivenAgentDesign.Model.MinerEntity.States
             _Miner.AnnounceTask("Pickin' up a nugget.");
             _Miner.GoldCarried++;
             _Miner.Fatigue++;
-            _Miner.Thirst++;
+            _Miner.Thirst += 0.5;
 
             if (_Miner.PocketsFull())
             {
@@ -56,6 +56,11 @@ namespace StateDrivenAgentDesign.Model.MinerEntity.States
         public void Exit(Miner _Miner)
         {
             _Miner.AnnounceTask("Ah'm leavin' the gold mine with mah pockets full o' sweet gold");
+        }
+
+        public bool OnMessage(Miner _Entity, Telegram _Telegram)
+        {
+            throw new NotImplementedException();
         }
     }
 }

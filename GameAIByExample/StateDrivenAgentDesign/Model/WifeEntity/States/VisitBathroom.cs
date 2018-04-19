@@ -40,5 +40,10 @@ namespace StateDrivenAgentDesign.Model.WifeEntity.States
         {
             _Entity.AnnounceTask("Leavin' the loo.");
         }
+
+        public bool OnMessage(Wife _Entity, Telegram _Telegram)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

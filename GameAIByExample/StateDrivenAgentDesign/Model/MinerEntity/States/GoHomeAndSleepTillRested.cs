@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StateDrivenAgentDesign.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,8 @@ namespace StateDrivenAgentDesign.Model.MinerEntity.States
             {
                 _Miner.Location = Location.Home;
                 _Miner.AnnounceTask("On me way home.");
+
+                MessageDispatcher.Instance.DispatchMessage(0.00, _Miner.Id, 2, TelegramType.Msg_IAmHome);
             }
         }
 
@@ -49,6 +52,21 @@ namespace StateDrivenAgentDesign.Model.MinerEntity.States
         public void Exit(Miner _Miner)
         {
             _Miner.AnnounceTask("That was a very good nap! Time to dig for more gold.");
+        }
+
+        public bool OnMessage(Miner _Entity, Telegram _Telegram)
+        {
+            switch (_Telegram.MsgType)
+            {
+                case TelegramType.Msg_StewReady:
+                    Console.WriteLine(string.Format("Message received by {0} at time {1}", _Entity.ToString(), DateTime.Now.Ticks));
+
+                    _Entity.AnnounceTask("Okay hun, ahm a-comin!");
+
+                    _Entity.StateMachine.ChangeState(EatStew.Instance);
+                    return true;
+            }
+            return false;
         }
     }
 }

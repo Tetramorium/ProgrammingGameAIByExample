@@ -12,6 +12,8 @@ namespace StateDrivenAgentDesign.Model.WifeEntity
     {
         public StateMachine<Wife> StateMachine { get; set; }
 
+        public bool IsCooking { get; set; }
+
         public Wife(int _Id, string _Name) : base(_Id, _Name)
         {
             StateMachine = new StateMachine<Wife>(this);

@@ -11,14 +11,29 @@ namespace StateDrivenAgentDesign.Controller
     {
         List<Telegram> delayedMessages;
 
-        public MessageDispatcher()
+        private static MessageDispatcher MD;
+
+        private MessageDispatcher()
         {
             delayedMessages = new List<Telegram>();
         }
 
+        public static MessageDispatcher Instance
+        {
+            get
+            {
+                if (MD == null)
+                {
+                    MD = new MessageDispatcher();
+                }
+
+                return MD;
+            }
+        }
+
         public void Discharge(BaseGameEntity _Receiver, Telegram _Telegram)
         {
-            if (_Receiver.HandleMessage(_Telegram))
+            if (!_Receiver.HandleMessage(_Telegram))
             {
                 _Receiver.AnnounceTask("Couldn't handle message!");
             }

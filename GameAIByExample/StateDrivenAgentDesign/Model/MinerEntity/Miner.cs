@@ -18,10 +18,10 @@ namespace StateDrivenAgentDesign.Model.MinerEntity
 
     public class Miner : BaseGameEntity
     {
-        private const int MaxNuggets = 3;
-        private const int EnoughGold = 5;
-        private const int MaxThirstLevel = 5;
-        private const int TirednessThreshold = 5;
+        private const int MaxNuggets = 6;
+        private const int EnoughGold = 3;
+        private const int MaxThirstLevel = 10;
+        private const int TirednessThreshold = 3;
 
         public StateMachine<Miner> StateMachine { get; set; }
 
@@ -72,7 +72,7 @@ namespace StateDrivenAgentDesign.Model.MinerEntity
 
         public override bool HandleMessage(Telegram _Telegram)
         {
-            return true;
+            return this.StateMachine.HandleMessage(_Telegram);
         }
     }
 }

@@ -11,5 +11,7 @@ namespace StateDrivenAgentDesign.Model
         void Enter(T _Entity);
         void Excecute(T _Entity);
         void Exit(T _Entity);
+
+        bool OnMessage(T _Entity, Telegram _Telegram);
     }
 }

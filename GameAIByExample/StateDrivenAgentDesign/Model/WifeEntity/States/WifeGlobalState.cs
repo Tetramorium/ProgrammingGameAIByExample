@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StateDrivenAgentDesign.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace StateDrivenAgentDesign.Model.WifeEntity.States
         }
 
         public void Enter(Wife _Entity)
-        {          
+        {
         }
 
         public void Excecute(Wife _Entity)
@@ -38,7 +39,20 @@ namespace StateDrivenAgentDesign.Model.WifeEntity.States
         }
 
         public void Exit(Wife _Entity)
-        {      
+        {
+        }
+
+        public bool OnMessage(Wife _Entity, Telegram _Telegram)
+        {
+            switch (_Telegram.MsgType)
+            {
+                case TelegramType.Msg_IAmHome:  
+                    Console.WriteLine(string.Format("Message handled by {0} at time {1}", _Entity.ToString(), DateTime.Now.Ticks));
+                    _Entity.AnnounceTask("Hi honey. Let me make you some of mah fine country stew.");
+                    _Entity.StateMachine.ChangeState(CookStew.Instance);
+                    return true;
+            }
+            return false;
         }
     }
 }
