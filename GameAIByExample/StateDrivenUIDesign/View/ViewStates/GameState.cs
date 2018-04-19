@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StateDrivenUIDesign.View.ViewStates
 {
-    public class GameState : IState<GameView>
+    public class GameState : State<GameView>
     {
         private static GameState GS;
 
@@ -28,16 +28,22 @@ namespace StateDrivenUIDesign.View.ViewStates
         }
 
 
-        public void Enter(GameView _Entity)
+        public override void Enter(GameView _Entity)
         {
         }
 
-        public void Excecute(GameView _Entity)
+        public override void Excecute(GameView _Entity)
         {
             _Entity.GraphicsDevice.Clear(Color.Red);
+
+            _Entity.spriteBatch.Begin();
+
+            DrawString(_Entity, 0, 100, "Epic Gameplay", true, Color.Black);
+
+            _Entity.spriteBatch.End();
         }
 
-        public void Exit(GameView _Entity)
+        public override void Exit(GameView _Entity)
         {
         }
     }

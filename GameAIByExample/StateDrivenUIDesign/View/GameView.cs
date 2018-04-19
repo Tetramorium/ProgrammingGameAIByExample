@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 using StateDrivenUIDesign.View.ViewStates;
 using StateDrivenUIDesign.Controller;
+using StateDrivenUIDesign.Model;
 
 namespace StateDrivenUIDesign.View
 {
@@ -13,13 +14,27 @@ namespace StateDrivenUIDesign.View
     public class GameView : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch { get; set; }
         public StateMachine<GameView> StateMachine { get; set; }
+
+        public SpriteFont Font { get; set; }
+
+        public const int Width = 640;
+        public const int Height = 480;
+
+        private KeyboardState previousKeyboardState;
 
         public GameView()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            this.Window.IsBorderless = false;
+            graphics.PreferredBackBufferHeight = Height;
+            graphics.PreferredBackBufferWidth = Width;
+
+            // http://community.monogame.net/t/how-to-center-gamewindow/9518/5
+            Window.Position = new Point((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2) - (graphics.PreferredBackBufferWidth / 2), (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2) - (graphics.PreferredBackBufferHeight / 2));
         }
 
         /// <summary>
@@ -36,6 +51,10 @@ namespace StateDrivenUIDesign.View
 
             StateMachine.CurrentState = MainMenuState.Instance;
 
+            StateMachine.CurrentState.Enter(this);
+
+            IsMouseVisible = true;
+
             base.Initialize();
         }
 
@@ -49,6 +68,8 @@ namespace StateDrivenUIDesign.View
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+
+            Font = Content.Load<SpriteFont>("SpriteFonts/MenuText");
         }
 
         /// <summary>
@@ -67,22 +88,48 @@ namespace StateDrivenUIDesign.View
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //http://www.gamefromscratch.com/post/2015/06/28/MonoGame-Tutorial-Handling-Keyboard-Mouse-and-GamePad-Input.aspx
+
+            KeyboardState state = Keyboard.GetState();
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || state.IsKeyDown(Keys.Escape))
+            {
+                if (!(this.StateMachine.CurrentState is MainMenuState))
+                {
+                    this.StateMachine.ChangeState(MainMenuState.Instance);
+                }
+            }
+                
+
+            // TODO: Add your update logic here
 
             switch (this.StateMachine.CurrentState)
             {
                 case MainMenuState mms:
-                    if (Keyboard.GetState().IsKeyDown(Keys.O))
-                        this.StateMachine.ChangeState(GameState.Instance);
+                    if (state.IsKeyDown(Keys.Up) & !previousKeyboardState.IsKeyDown(Keys.Up))
+                    {
+                        mms.ChangeSelectedOptionUp();
+                    }
+
+                    if (state.IsKeyDown(Keys.Down) & !previousKeyboardState.IsKeyDown(Keys.Down))
+                        mms.ChangeSelectedOptionDown();
+
+                    if (state.IsKeyDown(Keys.Enter))
+                    {
+                        State<GameView> s = mms.GetSelectedState();
+                        if (s != null)
+                            this.StateMachine.ChangeState(s);
+                        else
+                            Exit();
+                    }
                     break;
-                case GameState gs:
-                    if (Keyboard.GetState().IsKeyDown(Keys.O))
-                        this.StateMachine.ChangeState(MainMenuState.Instance);
-                    break;
+                //case GameState gs:
+                //case OptionsState ab:
+
+                //    break;
             }
 
-            // TODO: Add your update logic here
+            previousKeyboardState = Keyboard.GetState();
 
             base.Update(gameTime);
         }

@@ -11,9 +11,9 @@ namespace StateDrivenUIDesign.Controller
     {
         public T Owner { get; set; }
 
-        public IState<T> CurrentState { get; set; }
-        public IState<T> PreviousState { get; set; }
-        public IState<T> GlobalState { get; set; }
+        public State<T> CurrentState { get; set; }
+        public State<T> PreviousState { get; set; }
+        public State<T> GlobalState { get; set; }
 
         public StateMachine(T _Owner)
         {
@@ -29,7 +29,7 @@ namespace StateDrivenUIDesign.Controller
                 CurrentState.Excecute(this.Owner);
         }
 
-        public void ChangeState(IState<T> _NewState)
+        public void ChangeState(State<T> _NewState)
         {
             PreviousState = CurrentState;
             CurrentState.Exit(this.Owner);
