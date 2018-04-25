@@ -52,7 +52,7 @@ namespace StateDrivenAgentDesign.Model.WifeEntity.States
 
         public bool OnMessage(Wife _Entity, Telegram _Telegram)
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }

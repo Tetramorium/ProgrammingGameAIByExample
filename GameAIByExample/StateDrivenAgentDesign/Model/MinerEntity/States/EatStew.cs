@@ -27,14 +27,18 @@ namespace StateDrivenAgentDesign.Model.MinerEntity.States
 
         public void Enter(Miner _Entity)
         {
+            _Entity.AnnounceTask("Smells Reaaal goood Elsa!");
         }
 
         public void Excecute(Miner _Entity)
         {
+            _Entity.AnnounceTask("Tastes real good too!");
+            _Entity.StateMachine.RevertToPreviousState();
         }
 
         public void Exit(Miner _Entity)
         {
+            _Entity.AnnounceTask("Thankya li'lle lady. Ah better get back to whatever ah wuz doin'");
         }
 
         public bool OnMessage(Miner _Entity, Telegram _Telegram)

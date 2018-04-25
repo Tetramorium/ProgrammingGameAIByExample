@@ -18,10 +18,10 @@ namespace StateDrivenAgentDesign.Model.MinerEntity
 
     public class Miner : BaseGameEntity
     {
-        private const int MaxNuggets = 6;
-        private const int EnoughGold = 3;
-        private const int MaxThirstLevel = 10;
-        private const int TirednessThreshold = 3;
+        private const int MaxNuggets = 3;
+        private const int EnoughGold = 5;
+        private const int MaxThirstLevel = 5;
+        private const int TirednessThreshold = 5;
 
         public StateMachine<Miner> StateMachine { get; set; }
 
@@ -37,6 +37,7 @@ namespace StateDrivenAgentDesign.Model.MinerEntity
             StateMachine = new StateMachine<Miner>(this);
             StateMachine.CurrentState = GoHomeAndSleepTillRested.Instance;
             this.Location = Location.Home;
+            this.MoneyInBank = 4;
         }
 
         public override void Update()

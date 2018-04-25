@@ -40,7 +40,7 @@ namespace StateDrivenAgentDesign.Model.MinerEntity.States
             _Miner.AnnounceTask("Pickin' up a nugget.");
             _Miner.GoldCarried++;
             _Miner.Fatigue++;
-            _Miner.Thirst += 0.5;
+            _Miner.Thirst += 1;
 
             if (_Miner.PocketsFull())
             {

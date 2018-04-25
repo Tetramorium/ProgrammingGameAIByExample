@@ -25,6 +25,7 @@ namespace StateDrivenAgentDesign
                 Thread.Sleep(1000);
                 m.Update();
                 w.Update();
+                MessageDispatcher.Instance.DispatchDelayedMessages();
             }
         }
     }

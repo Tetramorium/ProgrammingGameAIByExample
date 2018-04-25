@@ -44,7 +44,7 @@ namespace StateDrivenAgentDesign.Model.MinerEntity.States
             } else
             {
                 _Miner.AnnounceTask("That's mighty fine sippin liquor.");
-                _Miner.MoneyInBank -= _Miner.Thirst / 4;             
+                _Miner.MoneyInBank -= 2;             
             }
 
             _Miner.Thirst = 0;

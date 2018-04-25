@@ -68,7 +68,7 @@ namespace StateDrivenAgentDesign.Controller
 
             foreach (Telegram telegram in delayedMessages)
             {
-                if (currentTime < telegram.DispatchTime)
+                if (currentTime > telegram.DispatchTime)
                 {
                     BaseGameEntity Receiver = EntityManager.Instance.GetEntity(telegram.Receiver);
                     Discharge(Receiver, telegram);

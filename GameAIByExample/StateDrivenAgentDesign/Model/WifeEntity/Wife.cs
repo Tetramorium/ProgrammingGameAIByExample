@@ -33,7 +33,7 @@ namespace StateDrivenAgentDesign.Model.WifeEntity
 
         public override bool HandleMessage(Telegram _Telegram)
         {
-            return true;
+            return this.StateMachine.HandleMessage(_Telegram);
         }
     }
 }
