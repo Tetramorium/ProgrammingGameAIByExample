@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateDrivenAgentDesign", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateDrivenUIDesign", "StateDrivenUIDesign\StateDrivenUIDesign.csproj", "{B64377FC-E223-4C51-84C5-5A21FE836461}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutonomouslyMovingGameAgents", "AutonomouslyMovingGameAgents\AutonomouslyMovingGameAgents.csproj", "{6CC42EC1-02E0-45E5-8B71-5FA556C89690}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,12 @@ Global
 		{B64377FC-E223-4C51-84C5-5A21FE836461}.Release|Any CPU.ActiveCfg = Release|x86
 		{B64377FC-E223-4C51-84C5-5A21FE836461}.Release|x86.ActiveCfg = Release|x86
 		{B64377FC-E223-4C51-84C5-5A21FE836461}.Release|x86.Build.0 = Release|x86
+		{6CC42EC1-02E0-45E5-8B71-5FA556C89690}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{6CC42EC1-02E0-45E5-8B71-5FA556C89690}.Debug|x86.ActiveCfg = Debug|x86
+		{6CC42EC1-02E0-45E5-8B71-5FA556C89690}.Debug|x86.Build.0 = Debug|x86
+		{6CC42EC1-02E0-45E5-8B71-5FA556C89690}.Release|Any CPU.ActiveCfg = Release|x86
+		{6CC42EC1-02E0-45E5-8B71-5FA556C89690}.Release|x86.ActiveCfg = Release|x86
+		{6CC42EC1-02E0-45E5-8B71-5FA556C89690}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
