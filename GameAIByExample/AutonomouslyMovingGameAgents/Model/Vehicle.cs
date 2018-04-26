@@ -13,9 +13,9 @@ namespace AutonomouslyMovingGameAgents.Model
     {
         public Vehicle(Vector2 _Location, string _Name) : base(_Location, _Name)
         {
-            this.Mass = 50;
-            this.MaxForce = 10;
-            this.MaxSpeed = 5;
+            this.Mass = 15;
+            this.MaxForce = 15;
+            this.MaxSpeed = 15;
             this.MaxTurnRate = 100;
 
             this.BehaviorController.SteeringBehaviors.Add(new ArriveBehaviour(this));

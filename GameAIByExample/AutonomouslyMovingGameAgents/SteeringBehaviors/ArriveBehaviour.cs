@@ -23,7 +23,7 @@ namespace AutonomouslyMovingGameAgents.SteeringBehaviors
 
                 if (Distance > 0)
                 {
-                    float speed = Distance * 0.3F;
+                    float speed = Distance / 25;
 
                     if(speed> ME.MaxSpeed)
                     {

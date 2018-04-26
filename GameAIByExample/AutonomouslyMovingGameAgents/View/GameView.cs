@@ -97,7 +97,7 @@ namespace AutonomouslyMovingGameAgents.View
 
             foreach (Vehicle v in GameWorld.Instance.Vehicles)
             {
-                v.Update((float)gameTime.ElapsedGameTime.Milliseconds / (10));
+                v.Update((float)gameTime.ElapsedGameTime.Milliseconds / (25));
 
                 if (clicked)
                 {
